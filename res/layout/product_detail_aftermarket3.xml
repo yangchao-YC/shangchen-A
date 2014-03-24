@@ -1,0 +1,23 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@android:color/white"
+    android:orientation="vertical">
+     <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal" >
+
+                    <WebView
+                        android:id="@+id/Product_Aftermarket_WebView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true" 
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="3dp"
+                        android:hardwareAccelerated="true" />
+                    
+    </RelativeLayout>
+</LinearLayout>

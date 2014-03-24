@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="date">
+        <item>三星</item>
+        <item>联想</item>
+        <item>诺基亚</item>
+        <item>vivo</item>
+        <item>酷比</item>
+        <item>摩托罗拉</item>
+        <item>酷派</item>
+        <item>HTC</item>
+        <item>OPPO</item>
+        <item>魅族</item>
+        <item>LG</item>
+        <item>苹果</item>
+        <item>黑莓</item>
+        <item>天语</item>
+        <item>金立</item>
+        <item>长虹</item>
+        <item>中兴</item>
+        <item>华为</item>
+        <item>飞利浦</item>
+        <item>索尼</item>
+        <item>小米</item>
+        <item>TCL</item>
+        <item>BOBO</item>
+        <item>Jobs</item>
+        <item>#sb</item>
+        <item>$sb$</item>
+        <item>Jack</item>
+        <item>~sb</item>
+    </string-array>
+</resources>

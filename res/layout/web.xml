@@ -1,0 +1,79 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@android:color/white"
+    android:orientation="vertical">
+	<RelativeLayout 
+        android:id="@+id/web_TOP"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/header_bg">
+        
+	    
+       <Button
+            android:id="@+id/web_Button_back"
+            android:layout_width="40dip"
+            android:layout_height="30dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/back_an"
+            />
+       
+       
+         <TextView
+        android:id="@+id/web_TextView_tabBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFF"
+        android:textSize="20dip" />
+    </RelativeLayout>
+     <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal" >
+
+                    <WebView
+                        android:id="@+id/web_WebView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_above="@+id/web_bottom_linearLayout"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true" 
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="3dp"
+                        android:hardwareAccelerated="true" />
+
+        <TableLayout
+            android:id="@+id/web_bottom_linearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:stretchColumns="*"
+  			android:padding="2dip"
+  			android:gravity="center"
+            android:background="@android:color/white"
+             >
+		<TableRow>
+                <Button
+            		android:id="@+id/web_Button_bottom_Back"        		
+           			android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+           			android:text="@string/webView_button1"
+           			android:textSize="7pt"
+            	 />
+                <Button
+            		android:id="@+id/web_Button_bottom_Next"
+           			android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+           			android:text="@string/webView_button2"
+           			android:textSize="7pt"
+            	 />
+		</TableRow>
+        </TableLayout>
+    </RelativeLayout>
+</LinearLayout>

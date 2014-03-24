@@ -1,0 +1,108 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@android:color/white"
+    android:orientation="vertical">
+	<RelativeLayout 
+        android:id="@+id/webView_TOP"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/header_bg">
+        
+	    
+       <Button
+            android:id="@+id/webView_Button_back"
+            android:layout_width="40dip"
+            android:layout_height="30dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/back_an"
+            />
+       
+       
+         <TextView
+        android:id="@+id/webView_TextView_tabBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFF"
+        android:textSize="20dip" />
+    </RelativeLayout>
+    <LinearLayout 
+        android:id="@+id/webView_Layout_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:visibility="gone"
+        android:orientation="vertical"
+        >
+        <TextView 
+            android:id="@+id/webView_Layout_title_text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:gravity="center"
+            android:textSize="9pt"
+            android:text="我是标题"
+            android:textColor="#d3d7d4"/>
+        <TextView 
+            android:id="@+id/webView_Layout_title_text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:textSize="9pt"
+            android:text="我是时间"
+            android:textColor="#d3d7d4"/>
+    </LinearLayout>
+     <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal" >
+
+                    <WebView
+                        android:id="@+id/webView_WebView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_above="@+id/webView_bottom_linearLayout"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="3dp"
+                        android:hardwareAccelerated="true" />
+
+        <TableLayout
+            android:id="@+id/webView_bottom_linearLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:stretchColumns="*"
+  			android:padding="2dip"
+  			android:gravity="center"
+            android:background="@android:color/white"
+             >
+            <TableRow>
+                <Button
+            		android:id="@+id/webView_Button_bottom_Back"        		
+           			android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+           			android:text="@string/webView_button1"
+           			android:textSize="7pt"
+            	 />
+                <Button
+            		android:id="@+id/webView_Button_bottom_Next"
+           			android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+           			android:text="@string/webView_button2"
+           			android:textSize="7pt"
+            	 />
+		</TableRow>
+        </TableLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,176 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="fill_parent"
+    android:background="@drawable/homepage_bg" >
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/header_bg">
+         <TextView
+        android:id="@+id/Convenient_TextView_tabBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFF"
+        android:textSize="20dp" />
+    </RelativeLayout>
+	<LinearLayout 
+   		android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="12"
+        android:orientation="vertical">
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="8">
+        
+        <android.support.v4.view.ViewPager
+	        android:id="@+id/Home_guidePages"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        />
+        
+        
+        <LinearLayout 
+	    android:id="@+id/ll"
+	    android:layout_width="fill_parent"
+	    android:layout_height="30dp"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:gravity="center_horizontal"
+	    android:layout_marginBottom="1dp">
+
+		<ImageView
+		    android:id="@+id/Home_top_image1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:clickable="true"
+		    android:layout_marginTop="12dp"
+		    android:src="@drawable/point_true" />
+  
+        <ImageView
+            android:id="@+id/Home_top_image2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+			android:layout_marginLeft="8dp"
+            android:src="@drawable/point_flase" />
+  
+        <ImageView  
+            android:id="@+id/Home_top_image3"
+            android:layout_width="wrap_content"  
+            android:layout_height="wrap_content"  
+            android:layout_gravity="center_vertical"  
+            android:clickable="true"  
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/point_flase"/>  
+           </LinearLayout>
+        
+        
+    </RelativeLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="4"
+        android:orientation="vertical">
+        
+        
+        <TableLayout 
+        	android:layout_width="fill_parent"
+        	android:layout_height="fill_parent"
+        	android:shrinkColumns="*"
+        	android:stretchColumns="*"
+        	android:weightSum="3"
+  			android:padding="3dip"
+  			android:gravity="center"
+        	android:orientation="horizontal">
+        	
+            
+        	<TableRow 
+        	    android:layout_weight="1"
+        	    android:layout_width="fill_parent"
+        	    android:layout_height="fill_parent">
+        	<Button 
+        	    android:id="@+id/Home_button1"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:layout_margin="5dp"
+        	    android:background="@drawable/button1"/>
+        	<Button 
+        	    android:id="@+id/Home_button2"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/button2"
+        	    android:layout_margin="5dp"
+        	    />
+        	<Button 
+        	    android:id="@+id/Home_button3"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/button3"
+        	    android:layout_margin="5dp"/>
+        	</TableRow>
+        	
+        	
+        	<TableRow 
+        	    android:layout_weight="1"
+        	    android:layout_width="fill_parent"
+        	    android:layout_height="fill_parent">
+        	<Button 
+        	    android:id="@+id/Home_button4"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:layout_margin="5dp"
+        	    android:background="@drawable/button4"/>
+        	<Button 
+        	    android:id="@+id/Home_button5"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/button5"
+        	    android:layout_margin="5dp"
+        	    />
+        	<Button 
+        	    android:id="@+id/Home_button6"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/button6"
+        	    android:layout_margin="5dp"/>
+        	</TableRow>
+        	
+        	
+        	<TableRow 
+        	    android:layout_weight="1"
+        	    android:layout_width="fill_parent"
+        	    android:layout_height="fill_parent">
+        	<Button 
+        	    android:id="@+id/Home_button7"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:layout_margin="5dp"
+        	    android:background="@drawable/button7"/>
+        	<Button 
+        	    android:id="@+id/Home_button8"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/button8"
+        	    android:layout_margin="5dp"
+        	    />
+        	<Button 
+        	    android:id="@+id/Home_button9"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/button9"
+        	    android:layout_margin="5dp"/>
+        	</TableRow>
+    	</TableLayout>
+    	
+    </LinearLayout>
+    
+    </LinearLayout>
+</LinearLayout>

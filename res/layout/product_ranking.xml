@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+	<ListView 
+	    android:id="@+id/Product_Ranking_ListView"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:cacheColorHint="#00000000" 
+        android:divider="@drawable/listview_line"
+        android:dividerHeight="1px">
+	    
+	</ListView>
+</LinearLayout>

@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@android:color/white"
+    android:orientation="vertical">
+	
+    
+    <TableLayout
+ 		 android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:shrinkColumns="*"
+         android:stretchColumns="*"
+ 		 android:padding="3dip"
+ 		 android:background="@drawable/bg"
+ 	 >
+ 	 <TableRow 
+        	    android:layout_width="fill_parent"
+        	    android:layout_height="fill_parent">
+        	<Button 
+        	    android:id="@+id/payment_flow_button1"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:layout_margin="2dp"
+        	    android:background="@drawable/payment_1"/>
+        	<Button 
+        	    android:id="@+id/payment_flow_button2"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/payment_2"
+        	    android:layout_margin="2dp"
+        	    />
+        	<Button 
+        	    android:id="@+id/payment_flow_button3"
+        	    android:layout_width="wrap_content"
+        	    android:layout_height="fill_parent"
+        	    android:background="@drawable/payment_3"
+        	    android:layout_margin="2dp"/>
+     </TableRow>
+ 	</TableLayout>
+    
+    
+    
+        <LinearLayout  
+       android:layout_width="fill_parent"  
+       android:layout_height="1px"  
+       android:background="@drawable/listview_line" >  
+   </LinearLayout>
+   
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical">
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+          
+            android:orientation="horizontal">
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9dp"
+                android:text="@string/payment_1"/>
+            <TextView 
+                 android:id="@+id/payment_flow_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#005ca1"  
+                android:textSize="9dp"
+                android:text="@string/Payment_name3"/>
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9dp"
+                android:text="@string/payment_2"/>
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="9dp"
+                android:text="@string/payment_3"/>
+            <TextView 
+                android:id="@+id/payment_flow_text_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/Payment_phone4"
+                android:textSize="9dp"/>
+        </LinearLayout>
+    </LinearLayout>
+    
+    
+    
+      <LinearLayout  
+       android:layout_width="fill_parent"  
+       android:layout_height="1px"  
+       android:background="@drawable/listview_line" >  
+   </LinearLayout>
+    
+    
+    
+	 <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+  			android:padding="3dip"
+  			android:gravity="center"
+             >
+
+			<TableRow>
+                <TextView
+           			android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="@string/Payment_calls2"
+					android:layout_gravity="center"
+            	 />
+                <EditText 
+                    android:id="@+id/Payment_flow_EditText_Message"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/Payment_flow_value3"
+                    />
+			</TableRow>
+			<TableRow>
+                <TextView
+           			android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+					android:text="@string/Payment_calls3"
+					android:layout_gravity="center"
+            	 />
+                <EditText 
+                    android:id="@+id/Payment_flow_EditText_Phone"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/Payment_phone3"
+                    />
+			</TableRow>
+        </TableLayout>
+        
+	 
+	 
+	 
+	 
+        <LinearLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button 
+                android:id="@+id/Payment_flow_Button"
+	     		android:layout_width="wrap_content"
+	    	    android:layout_height="wrap_content"
+	    	    android:textColor="@android:color/white"
+	    	    android:background="@drawable/message_btn"
+	    	    android:text="@string/Payment_calls4"/>
+        </LinearLayout>
+</LinearLayout>

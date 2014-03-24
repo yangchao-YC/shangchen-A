@@ -1,0 +1,136 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:background="@android:color/white"
+    android:orientation="vertical">
+	<RelativeLayout 
+        android:id="@+id/Product_TOP"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/header_bg">
+        
+	    
+       <Button
+            android:id="@+id/Product_Button_back"
+            android:layout_width="40dip"
+            android:layout_height="30dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:background="@drawable/back_an"
+            />
+       
+       
+       <TextView
+        android:id="@+id/Product_TextView_tabBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/app_name"
+        android:textColor="#FFFFFF"
+        android:textSize="20dip" />
+    </RelativeLayout>
+
+	
+	<LinearLayout  
+       android:layout_width="fill_parent"  
+       android:layout_height="40.0dip"  
+       android:background="#FFFFFF" >  
+	
+	<LinearLayout  
+       android:layout_width="fill_parent"  
+       android:layout_height="40.0dip"  
+       android:background="#FFFFFF"
+       android:layout_weight="1.0" >  
+  
+       <TextView 
+           android:id="@+id/Product_text1"  
+           android:layout_width="fill_parent"  
+           android:layout_height="fill_parent"  
+           android:layout_weight="1.0"  
+           android:gravity="center"  
+           android:text="@string/Product_sum"  
+           android:textColor="@android:color/white"  
+           android:textSize="17.0dip" 
+           android:background="#005ca1"
+           />  
+       
+ 		 <TextView  
+           android:id="@+id/Product_text2"  
+           android:layout_width="fill_parent"  
+           android:layout_height="fill_parent"  
+           android:layout_weight="1.0"  
+           android:gravity="center"  
+            android:text="@string/Product_ranking"
+           android:textColor="#005ca1"  
+           android:textSize="17.0dip" /> 
+          <TextView  
+           android:id="@+id/Product_text3"  
+           android:layout_width="fill_parent"  
+           android:layout_height="fill_parent"  
+           android:layout_weight="1.0"  
+           android:gravity="center"  
+           
+             android:text="@string/Product_brand" 
+           android:textColor="#005ca1"  
+           android:textSize="17.0dip" /> 
+      
+   </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="40.0dip"
+       android:layout_weight="1.0"
+       android:background="@drawable/product_button_search1"
+       android:gravity="center" >
+          
+       <LinearLayout
+        android:focusable="true" android:focusableInTouchMode="true"
+        android:layout_width="0px" android:layout_height="0px"/>
+
+       <EditText
+           android:id="@+id/Product_text4"
+           android:layout_width="130dp"
+           android:layout_height="30dp"
+
+           android:background="@drawable/edittext_search2"
+           android:gravity="left"
+           android:layout_marginLeft="5dp"
+           android:hint="@string/Product_search"
+           android:singleLine="true"
+		   android:windowSoftInputMode="adjustPan|stateHidden"
+           android:paddingBottom="2dp"
+           android:paddingLeft="2dp"
+           android:paddingTop="6dp"
+           android:textColor="#95d3e3"
+           android:textSize="13.0dip" >
+
+          <!-- <requestFocus />-->
+       </EditText>
+
+       <Button
+           android:id="@+id/Product_Button_search"
+           android:layout_width="33dip"
+           android:layout_height="30dip"
+           android:layout_marginRight="5dp"
+           android:background="@drawable/product_search2" />
+   </LinearLayout>
+
+</LinearLayout>
+	 
+	 
+
+   <LinearLayout  
+       android:layout_width="fill_parent"  
+       android:layout_height="2dp"  
+       android:background="#005ca1" >  
+   
+   </LinearLayout>
+	
+	<android.support.v4.view.ViewPager
+	        android:id="@+id/Product_guidePages"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"/>
+
+</LinearLayout>
