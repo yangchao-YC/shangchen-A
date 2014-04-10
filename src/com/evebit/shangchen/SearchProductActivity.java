@@ -10,6 +10,7 @@ import com.evebit.json.Test_Bean;
 import com.evebit.json.Test_Model;
 import com.evebit.json.Y_Exception;
 import com.evebit.models.Normal;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -50,7 +51,7 @@ public class SearchProductActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search_product);
-		
+		PushAgent.getInstance(this).onAppStart();	
 		
 		searchtext = getIntent().getExtras().getString("Search");
 		Log.v("--Search--",  getIntent().getExtras().getString("Search"));
@@ -191,6 +192,7 @@ public class SearchProductActivity extends Activity {
 				hashtable.put(HomeActivity.KEY_MONERY, (test_Model.getMonery()==null? "": test_Model.getMonery()));
 				hashtable.put(HomeActivity.KEY_AFTERSALES, (test_Model.getAftersales()==null? "": test_Model.getAftersales()));
 				hashtable.put(HomeActivity.KEY_IMGURL, (test_Model.getImgUrl()==null? "": test_Model.getImgUrl()));
+				Log.v("--search--", test_Model.getImgUrl());
 				hashtable.put(HomeActivity.KEY_CANSHU1, (test_Model.getCanshu1()==null? "": test_Model.getCanshu1()));
 				hashtable.put(HomeActivity.KEY_CANSHU2, (test_Model.getCanshu2()==null? "": test_Model.getCanshu2()));
 				hashtable.put(HomeActivity.KEY_CANSHU3, (test_Model.getCanshu3()==null? "": test_Model.getCanshu3()));

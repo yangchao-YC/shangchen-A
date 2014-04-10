@@ -14,6 +14,7 @@ import com.evebit.json.Test_Model;
 import com.evebit.json.Y_Exception;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -63,6 +64,7 @@ public class ContactActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.contact);
+		PushAgent.getInstance(this).onAppStart();
 		tabString = getIntent().getExtras().getString("tabBar");
 		listView = (ListView)findViewById(R.id.Contact_ListView);
 		tabBar = (TextView)findViewById(R.id.Contact_TextView_tabBar);
@@ -180,8 +182,8 @@ public class ContactActivity extends Activity{
 					for (Test_Model test_Model : datalist) {					
 						HashMap<String, Object> hashtable = new HashMap<String, Object>();
 						hashtable.put(HomeActivity.KEY_TITLE, (test_Model.getTitle()==null? "": test_Model.getTitle()));
-						hashtable.put(HomeActivity.KEY_CANSHU1, "电话："+(test_Model.getCanshu1()==null? "": test_Model.getCanshu1()));
-						hashtable.put(HomeActivity.KEY_CANSHU2, "地址："+(test_Model.getCanshu2()==null? "": test_Model.getCanshu2()));
+						hashtable.put(HomeActivity.KEY_CANSHU1, "电话："+(test_Model.getCanshu2()==null? "": test_Model.getCanshu2()));
+						hashtable.put(HomeActivity.KEY_CANSHU2, "地址："+(test_Model.getCanshu3()==null? "": test_Model.getCanshu3()));
 						Date.add(hashtable);
 					}
 					handler.sendEmptyMessage(2);
@@ -250,6 +252,11 @@ public class ContactActivity extends Activity{
 		MobclickAgent.onResume(this);
 	}
 	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

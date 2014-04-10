@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.evebit.models.GuidePageAdapter;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -101,7 +102,7 @@ public class PaymentActivity extends Activity implements android.view.View.OnCli
 		/**
 		 * 设定滑动列表
 		 */
-				
+		PushAgent.getInstance(this).onAppStart();
 				LayoutInflater inflater = getLayoutInflater();  
 		        pageViews = new ArrayList<View>();  
 		                
@@ -296,6 +297,13 @@ public class PaymentActivity extends Activity implements android.view.View.OnCli
 				super.onResume();
 				MobclickAgent.onResume(this);
 			}
+			
+			@Override
+			public void finish() {
+				// TODO Auto-generated method stub
+				super.finish();
+			}
+
 			@Override
 			public boolean onCreateOptionsMenu(Menu menu) {
 				// Inflate the menu; this adds items to the action bar if it is present.

@@ -13,6 +13,7 @@ import com.evebit.json.Test_Model;
 import com.evebit.json.Y_Exception;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -66,7 +67,7 @@ public class AftermarketActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aftermarket);
-		
+		PushAgent.getInstance(this).onAppStart();
 		tabString = getIntent().getExtras().getString("tabBar");
 		tabBar = (TextView)findViewById(R.id.Aftermarket_TextView_tabBar);
 		back = (Button)findViewById(R.id.Aftermarket_Button_back);
@@ -119,13 +120,20 @@ public class AftermarketActivity extends Activity{
 					
 					data = DataManeger.getTestData(url);
 					ArrayList<Test_Model> datalist = data.getData();
-					for (Test_Model test_Model : datalist) {					
+					for (Test_Model test_Model : datalist) {	
+						Log.v("-售后-",test_Model.getCanshu1()==null? "0": test_Model.getCanshu1()) ;
 						HashMap<String, Object> hashtable = new HashMap<String, Object>();
+						//Log.v("-售后-",test_Model.getTitle()==null? "": test_Model.getTitle()) ;
 						hashtable.put(HomeActivity.KEY_TITLE, (test_Model.getTitle()==null? "": test_Model.getTitle()));
-						hashtable.put(HomeActivity.KEY_CANSHU1, images[Integer.parseInt((test_Model.getCanshu1()==null? "0": test_Model.getCanshu1()))]);
-						hashtable.put(HomeActivity.KEY_CANSHU2,"电话："+(test_Model.getCanshu2()==null? "": test_Model.getCanshu2()));
-						hashtable.put(HomeActivity.KEY_CANSHU3,"地址："+(test_Model.getCanshu3()==null? "": test_Model.getCanshu3()));
+						
+						//hashtable.put(HomeActivity.KEY_CANSHU1, images[0]);
+						
+						hashtable.put(HomeActivity.KEY_CANSHU1, images[Integer.parseInt((test_Model.getCanshu2()==null? "0": test_Model.getCanshu2()))]);
+						hashtable.put(HomeActivity.KEY_CANSHU2,"电话："+(test_Model.getCanshu3()==null? "": test_Model.getCanshu3()));
+						hashtable.put(HomeActivity.KEY_CANSHU3,"地址："+(test_Model.getCanshu4()==null? "": test_Model.getCanshu4()));
 						arrayList.add(hashtable);
+						
+						
 					}
 					handler.sendEmptyMessage(0);
 				} catch (Y_Exception e) {
@@ -181,6 +189,13 @@ public class AftermarketActivity extends Activity{
 		// TODO Auto-generated method stub
 		super.onResume();
 		MobclickAgent.onResume(this);
+	}
+
+
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
 	}
 
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import com.evebit.models.GuidePageAdapter;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
 import android.annotation.SuppressLint;
@@ -62,7 +63,7 @@ public class EnterpriseActivity extends Activity{
 		/**
 		 * 设定滑动列表
 		 */
-				
+		PushAgent.getInstance(this).onAppStart();	
 		LayoutInflater inflater = getLayoutInflater();  
 		pageViews = new ArrayList<View>();  
 		                
@@ -233,6 +234,12 @@ public class EnterpriseActivity extends Activity{
 	}
 	
 	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

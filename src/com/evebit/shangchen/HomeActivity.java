@@ -20,6 +20,7 @@ import com.evebit.json.Y_Exception;
 import com.evebit.models.GuidePageAdapter_Image;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 import com.umeng.update.UmengUpdateAgent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -70,11 +71,12 @@ public class HomeActivity extends Activity implements android.view.View.OnClickL
 	private String imgUrlString = HomeActivity.KEY_URL+"index.php?option=com_content&statez=13"+HomeActivity.KEY_ID;//
 	ArrayList<Hashtable<String, String>> imgUrldata = new ArrayList<Hashtable<String, String>>();//存储获取的图片地址
 	
-	public static final String KEY_ID = "&uid=17"; 
-	public static final String KEY_TIANQI = "http://m.weather.com.cn/data/101070501.html"; //天气地址
-	public static final String KEY_TIANQI_FLASH = "http://flash.weather.com.cn/sk2/shikuang.swf?id=101070101"; //天气flash地址
-	public static final String KEY_TIANMAO = "http://m.tmall.com/?sprefer=sypc01"; //"http://m.tmall.com/?sprefer=sypc01"
-
+	public static final String KEY_ID = "&uid=14"; 
+	public static final String KEY_TIANQI = "http://m.weather.com.cn/data/101070701.html"; //天气地址
+	public static final String KEY_TIANQI_FLASH = "http://flash.weather.com.cn/sk2/shikuang.swf?id=101070701"; //天气flash地址
+	public static final String KEY_TIANMAO = "http://www.hldab.com/"; //http://m.tmall.com/?spm=0.0.0.0&sid=ab13adb60ac4a24c&v=1&pds=stedition%23h"; //"http://m.tmall.com/?sprefer=sypc01"
+															//http://m.tmall.com/?spm=0.0.0.0&sid=ab13adb60ac4a24c&v=1&pds=stedition%23h
+															//http://m.tmall.com/?v=0
 	public static final String KEY_IMGURL = "imgurl"; 
 	public static final String KEY_CATID = "catid"; 
 	public static final String KEY_URL = "http://appsource.evebit.com/"; 
@@ -143,7 +145,9 @@ public class HomeActivity extends Activity implements android.view.View.OnClickL
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		LayoutInflater inflater = getLayoutInflater();  
+		LayoutInflater inflater = getLayoutInflater();
+		PushAgent.getInstance(this).onAppStart();	
+		
         pageViews = new ArrayList<View>();  
                 
         home1 = inflater.inflate(R.layout.home_image1, null);
@@ -288,7 +292,17 @@ public class HomeActivity extends Activity implements android.view.View.OnClickL
 						connection.connect();
 						InputStream is=connection.getInputStream();
 						BufferedInputStream bis = new BufferedInputStream(is);
-						bitmap = BitmapFactory.decodeStream(bis);
+						
+						
+						//设置图片缩放，以避免内存溢出
+						BitmapFactory.Options options = new BitmapFactory.Options();
+						options.inJustDecodeBounds = false;
+						options.inSampleSize = 3 ;//将width，hight 设为原来的十分之一
+						options.inPreferredConfig = Bitmap.Config.RGB_565;
+						options.inPurgeable = true;
+						options.inInputShareable = true;
+						
+						bitmap = BitmapFactory.decodeStream(bis,null,options);
 						bis.close();
 						is.close();
 						bitmaps.add(bitmap);
@@ -477,12 +491,37 @@ public class HomeActivity extends Activity implements android.view.View.OnClickL
 		super.onPause();
 		MobclickAgent.onPause(this);
 	}
+	
+	
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+	
+	}
 
 	@Override
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
 		MobclickAgent.onResume(this);
+	}
+	
+	
+
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+	
+	
+
+	@Override
+	protected void onDestroy() {
+		// TODO Auto-generated method stub
+		super.onDestroy();
 	}
 
 	@Override

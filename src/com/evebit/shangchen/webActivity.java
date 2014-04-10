@@ -5,12 +5,17 @@ package com.evebit.shangchen;
  */
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
+import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Bitmap;
 
+import android.util.Log;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -21,6 +26,9 @@ import android.widget.Toast;
 
 public class webActivity extends Activity implements android.view.View.OnClickListener{
 
+	private float OldX1,OldY1,OldX2,OldY2,NewX1,NewY1,NewX2,NewY2;
+	
+	
 	private TextView tabBar;
 
 	private Button backButton;
@@ -30,7 +38,6 @@ public class webActivity extends Activity implements android.view.View.OnClickLi
 	private WebView webView;
 
 	private Button back;
-
 
 	private String tabString = null;
 
@@ -47,7 +54,7 @@ public class webActivity extends Activity implements android.view.View.OnClickLi
 	super.onCreate(savedInstanceState);
 
 	setContentView(R.layout.web);
-
+	PushAgent.getInstance(this).onAppStart();	
 	/**
 
 	* 接收数据
@@ -79,6 +86,11 @@ public class webActivity extends Activity implements android.view.View.OnClickLi
 	webView.getSettings().setJavaScriptEnabled(true);
 
 	webView.getSettings().setPluginsEnabled(true);
+	
+	webView.getSettings().setUseWideViewPort(true);
+	webView.getSettings().setBuiltInZoomControls(true);
+	webView.getSettings().setSupportZoom(true);
+	webView.getSettings().setDisplayZoomControls(false);
 
 	backButton.setOnClickListener(this);
 
@@ -98,18 +110,17 @@ public class webActivity extends Activity implements android.view.View.OnClickLi
 	webView.setWebViewClient(new WebViewClient(){
 
 
+		@Override
+		public boolean shouldOverrideUrlLoading(WebView view, String url) {
+			// TODO Auto-generated method stub
+				view.loadUrl(url);
+				Log.v("--tianmao--", url);
+		
+				return true;
+		}
+	
+		
 
-	@Override
-
-	public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-	// TODO Auto-generated method stub
-
-	view.loadUrl(url);
-
-	return true;
-
-	}
 
 	});
 
@@ -118,6 +129,7 @@ public class webActivity extends Activity implements android.view.View.OnClickLi
 	if (normal.note_Intent()) {
 
 	webView.loadUrl(urlString);
+	//Log.v("--", webView.getUrl());
 
 	}
 
@@ -160,6 +172,36 @@ public class webActivity extends Activity implements android.view.View.OnClickLi
 	MobclickAgent.onResume(this);
 
 	}
+
+
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
+
+
+	
+/*//实现手势缩放 ，层加便利性
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		switch(event.getAction()){
+			case MotionEvent.ACTION_POINTER_DOWN:
+				if(event.getPointerCount() == 2){
+					for(int i = 0;i<event.getPointerCount();i++){
+						if(i==0){
+							OldX1 = event.getX();
+							OldY1 = event.getY();
+						}
+					}
+				}
+		}
+		return super.onTouchEvent(event);
+	}
+*/
+
+
 
 
 	@Override
@@ -222,4 +264,6 @@ public class webActivity extends Activity implements android.view.View.OnClickLi
 	}
 
 	}
+	
+	
 }

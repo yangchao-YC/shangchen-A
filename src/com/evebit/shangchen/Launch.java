@@ -21,6 +21,7 @@ import com.evebit.json.Test_Model;
 import com.evebit.json.Y_Exception;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -49,7 +50,11 @@ public class Launch extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.launch);
-		MobclickAgent.setDebugMode(true);
+		MobclickAgent.setDebugMode(true);  
+		//开启消息推送
+				PushAgent mPushAgent = PushAgent.getInstance(this);
+				mPushAgent.enable();
+				PushAgent.getInstance(this).onAppStart();
 		//timeStart();
 		Normal normal = new Normal(this);
 		if (normal.note_Intent()) {

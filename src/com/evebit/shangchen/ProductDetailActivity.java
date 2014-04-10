@@ -11,6 +11,7 @@ import java.util.Hashtable;
 import com.evebit.models.GuidePageAdapter;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.R.integer;
 import android.os.Bundle;
@@ -77,6 +78,7 @@ public class ProductDetailActivity extends Activity{
 		/**
 		 * 设定滑动列表
 		 */
+		PushAgent.getInstance(this).onAppStart();	
 				LayoutInflater inflater = getLayoutInflater();  
 		        pageViews = new ArrayList<View>();  
 		                
@@ -335,6 +337,14 @@ public class ProductDetailActivity extends Activity{
 		MobclickAgent.onResume(this);
 	}
 	
+	
+	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

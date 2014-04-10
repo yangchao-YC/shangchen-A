@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">易天通讯</string>
+    <string name="app_name">爱博通讯</string>
     <string name="tianqi_1">辽宁省</string>
-    <string name="tianqi_2">鞍山市</string>
+    <string name="tianqi_2">锦州市</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="webView_button1">上一页</string>

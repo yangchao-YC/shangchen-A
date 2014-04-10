@@ -20,6 +20,8 @@ import com.evebit.json.Y_Exception;
 import com.evebit.models.GuidePageAdapter_Image;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -84,7 +86,7 @@ public class DoingActivity extends Activity implements android.view.View.OnClick
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		PushAgent.getInstance(this).onAppStart();
 		/**
 		 * 根据数据数目获取图片
 		 * 如果数据少于3条，则显示对应数目的pageViews
@@ -388,6 +390,12 @@ public class DoingActivity extends Activity implements android.view.View.OnClick
 	
 	
 
+	/**
+	 * 添加日期  2014年4月1日
+	 * 作者：田兵
+	 * 功能，解决图片加载时的溢出问题，主要蝕通过缩放显示像素的密度，来解决这个问题*/
+	
+	
 
 	
 	/**
@@ -395,7 +403,7 @@ public class DoingActivity extends Activity implements android.view.View.OnClick
 	 */
 	private void imgThread()
 	{
-		new Thread()
+		 new Thread()
 		{
 
 			@Override
@@ -416,7 +424,15 @@ public class DoingActivity extends Activity implements android.view.View.OnClick
 						connection.connect();
 						InputStream is=connection.getInputStream();
 						BufferedInputStream bis = new BufferedInputStream(is);
-						bitmap = BitmapFactory.decodeStream(bis);
+						//设置图片缩放，以避免内存溢出
+						BitmapFactory.Options options = new BitmapFactory.Options();
+						options.inJustDecodeBounds = false;
+						options.inSampleSize = 3 ;//将width，hight 设为原来的十分之一
+						options.inPreferredConfig = Bitmap.Config.RGB_565;
+						options.inPurgeable = true;
+						options.inInputShareable = true;
+						//代码完成
+						bitmap = BitmapFactory.decodeStream(bis,null,options);
 						bis.close();
 						is.close();
 						bitmaps.add(bitmap);
@@ -473,6 +489,8 @@ public class DoingActivity extends Activity implements android.view.View.OnClick
 		MobclickAgent.onResume(this);
 	}
 	
+	
+	
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
@@ -485,6 +503,24 @@ public class DoingActivity extends Activity implements android.view.View.OnClick
 		getMenuInflater().inflate(R.menu.launch, menu);
 		return true;
 	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+
+		
+	}
+	
+
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		Log.v("--finish--", "yes");
+		super.finish();
+	}
+
+
 
 	@Override
 	public void onClick(View v) {

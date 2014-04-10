@@ -6,6 +6,7 @@ import java.util.Hashtable;
 
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
 import android.annotation.SuppressLint;
@@ -43,6 +44,7 @@ public class WebViewActivity extends Activity implements android.view.View.OnCli
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		PushAgent.getInstance(this).onAppStart();	
 		setContentView(R.layout.webview);
 		tabString = getIntent().getExtras().getString("tabBar");
 		showString = getIntent().getExtras().getString("show");//值为YES显示下面箭头，值为NO不显示
@@ -155,6 +157,15 @@ public class WebViewActivity extends Activity implements android.view.View.OnCli
 		MobclickAgent.onResume(this);
 	}
 	
+	
+	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

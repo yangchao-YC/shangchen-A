@@ -18,6 +18,7 @@ import com.evebit.json.Test_Model_TianQi;
 import com.evebit.json.Y_Exception;
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -94,7 +95,7 @@ public class TianQiActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.tianqi);
-		
+		PushAgent.getInstance(this).onAppStart();	
 		/**
 		 * 绑定控件
 		 */
@@ -344,6 +345,13 @@ public class TianQiActivity extends Activity {
 	}
 
 	
+	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

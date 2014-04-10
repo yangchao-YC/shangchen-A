@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -42,7 +43,7 @@ public class ConvenientActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.convenient);
-		
+		PushAgent.getInstance(this).onAppStart();
 		tabString = getIntent().getExtras().getString("tabBar");
 		tabBar = (TextView)findViewById(R.id.Convenient_TextView_tabBar);
 		back = (Button)findViewById(R.id.Convenient_Button_back);
@@ -124,6 +125,15 @@ public class ConvenientActivity extends Activity{
 		super.onResume();
 		MobclickAgent.onResume(this);
 	}
+	
+	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

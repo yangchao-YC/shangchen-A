@@ -6,6 +6,7 @@ import java.util.Hashtable;
 
 import com.evebit.models.Normal;
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.os.Bundle;
 import android.annotation.SuppressLint;
@@ -46,6 +47,7 @@ public class DoingWebViewActivity extends Activity implements android.view.View.
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.webview);
+		PushAgent.getInstance(this).onAppStart();
 		webView = (WebView)findViewById(R.id.webView_WebView);
 		backButton = (Button)findViewById(R.id.webView_Button_back);
 		webBackButton = (Button)findViewById(R.id.webView_Button_bottom_Back);
@@ -69,6 +71,7 @@ public class DoingWebViewActivity extends Activity implements android.view.View.
 		webNextButton.setOnClickListener(this);
 
 		//显示内容
+		
 		initWeb(data.get(mark).get(HomeActivity.KEY_INTROTEXT).toString());
 		
 
@@ -107,6 +110,7 @@ public class DoingWebViewActivity extends Activity implements android.view.View.
 		String summary = normal.getFromAssets("template.html");
 		summary = summary.replace("titleString", "我是标题");
 		summary = summary.replace("introtextString", in);
+		Log.v("in", ""+in);
 		summary = summary.replace("modified_timeString", "2013年11月22日");
 		webView.getSettings().setDefaultTextEncodingName("UTF-8"); 
 		//mWebView.getSettings().setJavaScriptEnabled(true);
@@ -124,7 +128,7 @@ public class DoingWebViewActivity extends Activity implements android.view.View.
 		if (mark!=0) {
 			if ((mark+1)>1) {
 				mark--;
-				Log.e("---1-", ""+mark);
+				Log.e("1", ""+mark);
 				initWeb(data.get(mark).get(HomeActivity.KEY_INTROTEXT));
 				tabBar.setText(data.get(mark).get(HomeActivity.KEY_TITLE));
 				titleTextView.setText(data.get(mark).get(HomeActivity.KEY_TITLE));
@@ -168,6 +172,15 @@ public class DoingWebViewActivity extends Activity implements android.view.View.
 		MobclickAgent.onResume(this);
 	}
 	
+	
+	
+	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub

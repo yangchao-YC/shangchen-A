@@ -31,6 +31,8 @@ import com.evebit.sortlistview.SideBar.OnTouchingLetterChangedListener;
 
 
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -132,7 +134,7 @@ public class ProductActivity extends Activity implements IXListViewListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	
-		
+		PushAgent.getInstance(this).onAppStart();	
 		/**
 		 * 设定滑动列表
 		 */
@@ -688,6 +690,12 @@ public class ProductActivity extends Activity implements IXListViewListener{
 
 	
 	@Override
+	public void finish() {
+		// TODO Auto-generated method stub
+		super.finish();
+	}
+
+	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		// TODO Auto-generated method stub
 		return false;
@@ -740,6 +748,7 @@ public class ProductActivity extends Activity implements IXListViewListener{
 				hashtable.put(HomeActivity.KEY_MONERY, (test_Model.getMonery()==null? "": test_Model.getMonery()));
 				hashtable.put(HomeActivity.KEY_AFTERSALES, (test_Model.getAftersales()==null? "": test_Model.getAftersales()));
 				hashtable.put(HomeActivity.KEY_IMGURL, (test_Model.getImgUrl()==null? "": test_Model.getImgUrl()));	
+				Log.v("KEY_CANSHU1---",  test_Model.getImgUrl()+"--");
 				hashtable.put(HomeActivity.KEY_CANSHU1, (test_Model.getCanshu1()==null? "": test_Model.getCanshu1()));
 				Log.v("KEY_CANSHU1---",  test_Model.getCanshu1()+"--");
 				/**
